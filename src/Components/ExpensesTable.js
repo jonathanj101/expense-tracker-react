@@ -21,7 +21,6 @@ export class ExpensesTable extends Component {
                         <th>$35</th>
                         <th>Credit Card</th>
                         <th>10-20-2020</th>
-
                     </tr>
                 </tbody>
             </Table >
