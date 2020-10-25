@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
-import { InputGroup, FormControl } from 'react-bootstrap'
+import React, { Component, } from 'react'
+import {
+    InputGroup, FormControl, Dropdown
+} from 'react-bootstrap'
+
 
 export class UserInput extends Component {
     render() {
@@ -7,32 +10,39 @@ export class UserInput extends Component {
             <div>
                 <InputGroup className="mb-3">
                     <FormControl
-                        placeholder="Username"
-                        aria-label="Username"
+                        placeholder="Desscription"
+                        aria-label="Description"
 
                     />
                 </InputGroup>
                 <InputGroup className="mb-3">
                     <FormControl
-                        placeholder="Username"
-                        aria-label="Username"
+                        placeholder="Amount"
+                        aria-label="Amount"
 
                     />
                 </InputGroup>
-                <InputGroup className="mb-3">
+                <Dropdown onSelect={e => {
+                    console.log(e)
+                    console.log(Dropdown.contextTypes)
+                    Dropdown.nodeValue = e
+                }}>
+                    <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                        Payment Type
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item eventKey='Cash' >Cash</Dropdown.Item>
+                        <Dropdown.Item eventKey='Debit Card'>Debit Card</Dropdown.Item>
+                        <Dropdown.Item eventKey='Credit Card'>Credit Card</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <InputGroup >
                     <FormControl
-                        placeholder="Username"
-                        aria-label="Username"
-
+                        placeholder='Date of Expense'
+                        aria-label='Date of Expense'
+                        type='date'
                     />
                 </InputGroup>
-                <InputGroup className="mb-3">
-                    <FormControl
-                        placeholder="Username"
-                        aria-label="Username"
-                    />
-                </InputGroup>
-
             </div>
         )
     }
