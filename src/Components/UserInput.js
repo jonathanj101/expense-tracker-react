@@ -1,7 +1,8 @@
-import React, { Component, } from 'react'
+import React, { Component } from 'react'
 import {
     InputGroup, FormControl, Dropdown, DropdownButton
 } from 'react-bootstrap'
+
 
 
 export class UserInput extends Component {
@@ -13,13 +14,13 @@ export class UserInput extends Component {
     }
     handleChange = (event) => {
         console.log('selected');
-        console.log(event);
         this.setState({ title: event })
     }
     render() {
         const { title } = this.state
         return (
-            <div>
+            <div className="w-50">
+                <p className="alert alert-primary" role="alert">Expenses</p>
                 <InputGroup className="mb-3">
                     <FormControl
                         placeholder="Desscription"
@@ -31,27 +32,14 @@ export class UserInput extends Component {
                     <FormControl
                         placeholder="Amount"
                         aria-label="Amount"
-
                     />
                 </InputGroup>
-                <DropdownButton className="mb-3" onSelect={this.handleChange} id="dropdown-basic-button" title={title}>
+
+                <DropdownButton className="btn mb-3" onSelect={this.handleChange} id="dropdown-basic-button" title={title}>
                     <Dropdown.Item as="button" eventKey="Cash">Cash</Dropdown.Item>
                     <Dropdown.Item as="button" eventKey="Debit Card">Debit Card</Dropdown.Item>
                     <Dropdown.Item as="button" eventKey="Credit Card">Credit Card</Dropdown.Item>
                 </DropdownButton>
-                {/* <div class="input-group mb-3">
-                    <select
-                        onChange={this.handleChange}
-                        className="custom-select"
-                        id="inputGroupSelect01"
-                        placeholder='Payment Method'
-                    >
-                        <option selected>Payment Method</option>
-                        <option value="cash">Cash</option>
-                        <option value="debit-card">Debit Card</option>
-                        <option value="credi-card">Credit Card</option>
-                    </select>
-                </div> */}
                 <InputGroup >
                     <FormControl
                         placeholder='Date of Expense'
