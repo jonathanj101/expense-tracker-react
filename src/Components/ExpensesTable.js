@@ -1,8 +1,11 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
-// import UserInput from './UserInput'
 
-function ExpensesTable() {
+const ExpensesTable = props => {
+    console.log(props)
+    const isSubmiited = props.state.submitted
+
+
 
     return (
         <Table className='main-table' striped bordered hover >
@@ -13,6 +16,7 @@ function ExpensesTable() {
                     <th>Amount</th>
                     <th>Payment Type</th>
                     <th>Date</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
 
@@ -23,7 +27,9 @@ function ExpensesTable() {
                     <th>$35</th>
                     <th>Credit Card</th>
                     <th>10-20-2020</th>
+                    <th className="close">&times;</th>
                 </tr>
+                {isSubmiited ? props.state.rows.map(row => <tr><th>{row}</th></tr>) : console.log('nope')}
             </tbody>
         </Table >
     )
