@@ -18,3 +18,20 @@ body {
   border: 1px solid red;
   cursor: pointer;
 } */
+
+.close {
+  float: none;
+  text-align: center;
+  cursor: pointer;
+  color: red;
+  line-height: 0.9;
+}
+
+.close:hover {
+  color: red;
+  opacity: 1;
+}
+
+table thead {
+  text-align: center;
+}
