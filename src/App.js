@@ -9,39 +9,29 @@ class App extends Component {
 
     this.state = {
       submitted: false,
-      paymentMethodTitle: 'Payment Method',
-      description: "",
-      amount: "",
-      date: "",
-      payment: ""
+      rows: [],
+      close: ''
+      // description: "",
+      // amount: "",
+      // date: "",
+      // payment: ""
     }
-    this.descriptionInput = React.createRef()
-    this.amountInput = React.createRef()
-    this.dateInput = React.createRef()
-    this.handleChange = this.handleChange.bind(this)
+
+
+    // this.descriptionInput = React.createRef()
+    // this.amountInput = React.createRef()
+    // this.dateInput = React.createRef()
+    // this.handleChange = this.handleChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  handleChange = (event) => {
-    console.log('selected');
-    this.setState({
-      paymentMethodTitle: event.target.value
-    })
-    console.log(this.state.paymentMethodTitle)
-
-  }
-
-  onSubmit = () => {
-    const desc = this.descriptionInput.current.value
-    const amount = this.amountInput.current.value
-    const date = this.dateInput.current.value
-    const payment = this.state.paymentMethodTitle
+  onSubmit = (description, amountPaid, datePurchased, paymentMethod) => {
+    var nextState = this.state.rows
+    nextState.push(description, amountPaid, datePurchased, paymentMethod)
     this.setState({
       submitted: true,
-      description: desc,
-      amount: amount,
-      date: date,
-      payment: payment
+      rows: nextState,
+      close: '&times'
     })
 
   }
@@ -50,7 +40,7 @@ class App extends Component {
     return (
       <div className="App">
         <UserInput onSubmit={this.onSubmit} handleChange={this.handleChange} state={this.state} />
-        <ExpensesTable />
+        <ExpensesTable state={this.state} />
       </div>
     );
 
