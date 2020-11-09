@@ -3,35 +3,6 @@ body {
   padding: 0;
 }
 
-/* .main-table {
-  width: 50%;
-} */
-
-/* .btn {
-  width: 100%;
-  height: 100%;
-  padding: 1% 0;
-} */
-
-/* .delete {
-  font-size: 1.5rem;
-  border: 1px solid red;
-  cursor: pointer;
-} */
-
-.close {
-  float: none;
-  text-align: center;
-  cursor: pointer;
-  color: red;
-  line-height: 0.9;
-}
-
-.close:hover {
-  color: red;
-  opacity: 1;
-}
-
 table thead {
   text-align: center;
 }
