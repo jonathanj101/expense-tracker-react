@@ -9,7 +9,11 @@ class App extends Component {
 
     this.state = {
       submitted: false,
-      rows: [],
+      rows: []
+      // description: '',
+      // amount: '',
+      // date: '',
+      // payment: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -28,15 +32,24 @@ class App extends Component {
     const date = document.getElementById('date').value
     const payment = document.getElementById('dropdownMenu2').innerHTML
 
-    if (description === null || amount === null || date === null || payment === 'Payment Method') {
+    if (
+      description === null ||
+      amount === null ||
+      date === null ||
+      payment === 'Payment Method'
+    ) {
       alert("Empty Expense detail ==>> no Expense to track!!")
     } else {
 
       var nextState = this.state.rows
-      nextState.push(description, amount, payment, date)
+      nextState.push([description, amount, payment, date])
       this.setState({
         submitted: true,
-        rows: nextState,
+        description: description,
+        amount: amount,
+        date: date,
+        payment: payment
+
       })
     }
   }
