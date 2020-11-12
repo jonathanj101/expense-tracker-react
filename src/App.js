@@ -8,17 +8,25 @@ class App extends Component {
     super();
 
     this.state = {
-      rows: []
+      rows: [],
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.deleteExpense = this.deleteExpense.bind(this)
+    this.saveToLocalStorage = this.saveToLocalStorage.bind(this)
+    this.getExpenseFromLocalStorage = this.getExpenseFromLocalStorage.bind(this)
+
+  }
+
+  componentDidMount() {
+    this.getExpenseFromLocalStorage()
   }
 
   handleChange = (e) => {
     let paymentTitle = document.getElementById('dropdownMenu2')
     paymentTitle.textContent = e.target.outerText
-    console.log(e.target.textContent)
+    console.log(this.state.id)
   }
 
   onSubmit = () => {
@@ -38,7 +46,6 @@ class App extends Component {
       var nextState = this.state.rows
       nextState.push({ description, amount, payment, date })
       this.setState({
-        submitted: true,
         description: description,
         amount: amount,
         date: date,
@@ -50,17 +57,16 @@ class App extends Component {
 
   deleteExpense = (e) => {
     e.target.parentElement.remove()
-    console.log(e.target.parentElement)
+    localStorage.removeItem("Expense")
   }
 
   saveToLocalStorage = (expense) => {
     localStorage.setItem("Expense", JSON.stringify(expense))
-    console.log(expense)
   }
 
   getExpenseFromLocalStorage = () => {
     let item = JSON.parse(localStorage.getItem('Expense'))
-    item ? console.log('ok') : console.log('nope')
+    item ? this.setState({ rows: item }) : this.setState({ rows: [] })
   }
 
   render() {
