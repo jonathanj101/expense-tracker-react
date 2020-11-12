@@ -3,6 +3,18 @@ body {
   padding: 0;
 }
 
-table thead {
-  text-align: center;
+form {
+  margin-top: 10%;
+}
+
+.expense-title {
+  font-size: 2.5rem;
+}
+
+table {
+  font-size: 1.25rem;
+}
+
+.strikethrough:hover {
+  text-decoration: line-through;
 }
