@@ -8,12 +8,7 @@ class App extends Component {
     super();
 
     this.state = {
-      submitted: false,
       rows: []
-      // description: '',
-      // amount: '',
-      // date: '',
-      // payment: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -35,30 +30,44 @@ class App extends Component {
     if (
       description === null ||
       amount === null ||
-      date === null ||
-      payment === 'Payment Method'
+      date === null
     ) {
       alert("Empty Expense detail ==>> no Expense to track!!")
     } else {
 
       var nextState = this.state.rows
-      nextState.push([description, amount, payment, date])
+      nextState.push({ description, amount, payment, date })
       this.setState({
         submitted: true,
         description: description,
         amount: amount,
         date: date,
         payment: payment
-
       })
+      this.saveToLocalStorage(this.state.rows)
     }
+  }
+
+  deleteExpense = (e) => {
+    e.target.parentElement.remove()
+    console.log(e.target.parentElement)
+  }
+
+  saveToLocalStorage = (expense) => {
+    localStorage.setItem("Expense", JSON.stringify(expense))
+    console.log(expense)
+  }
+
+  getExpenseFromLocalStorage = () => {
+    let item = JSON.parse(localStorage.getItem('Expense'))
+    item ? console.log('ok') : console.log('nope')
   }
 
   render() {
     return (
       <div className="App">
         <UserInput onSubmit={this.onSubmit} handleChange={this.handleChange} state={this.state} />
-        <ExpensesTable state={this.state} />
+        <ExpensesTable deleteExpense={this.deleteExpense} state={this.state} />
       </div>
     );
   }
