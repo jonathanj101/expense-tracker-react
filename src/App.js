@@ -9,6 +9,7 @@ class App extends Component {
 
     this.state = {
       rows: [],
+      id: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -44,8 +45,9 @@ class App extends Component {
     } else {
 
       var nextState = this.state.rows
-      nextState.push({ description, amount, payment, date })
+      nextState.push({ id: Math.random(), description, amount, payment, date })
       this.setState({
+        id: Math.random(),
         description: description,
         amount: amount,
         date: date,
@@ -57,7 +59,7 @@ class App extends Component {
 
   deleteExpense = (e) => {
     e.target.parentElement.remove()
-    localStorage.removeItem("Expense")
+
   }
 
   saveToLocalStorage = (expense) => {
