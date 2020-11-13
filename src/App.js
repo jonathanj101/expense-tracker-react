@@ -39,7 +39,8 @@ class App extends Component {
     if (
       description === null ||
       amount === null ||
-      date === null
+      date === null ||
+      payment === "Payment Method"
     ) {
       alert("Empty Expense detail ==>> no Expense to track!!")
     } else {
