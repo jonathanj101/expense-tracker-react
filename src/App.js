@@ -58,9 +58,14 @@ class App extends Component {
     }
   }
 
-  deleteExpense = (e) => {
-    e.target.parentElement.remove()
+  deleteExpense = (expensseId) => {
+    let oldExpenses = JSON.parse(localStorage.getItem("Expense"))
+    let newExpenses = oldExpenses.filter(expense => expense.id !== expensseId)
 
+    this.saveToLocalStorage(newExpenses)
+    this.setState({
+      rows: newExpenses
+    })
   }
 
   saveToLocalStorage = (expense) => {
