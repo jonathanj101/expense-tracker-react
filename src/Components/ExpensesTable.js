@@ -10,7 +10,7 @@ const ExpensesTable = (props) => {
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Want to delete? Just click!"
-                onClick={props.deleteExpense}
+                onClick={() => props.deleteExpense(expense.id)}
                 key={num}>
                 <td>{num + 1}</td>
                 <td>{expense.description}</td>
