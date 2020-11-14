@@ -17,4 +17,5 @@ table {
 
 .strikethrough:hover {
   text-decoration: line-through;
+  cursor: pointer;
 }
