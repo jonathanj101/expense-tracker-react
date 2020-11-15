@@ -27,7 +27,6 @@ class App extends Component {
   handleChange = (e) => {
     let paymentTitle = document.getElementById('dropdownMenu2')
     paymentTitle.textContent = e.target.outerText
-    console.log(this.state.id)
   }
 
   onSubmit = () => {
