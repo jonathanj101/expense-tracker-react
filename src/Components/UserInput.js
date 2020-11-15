@@ -67,7 +67,7 @@ const UserInput = props => {
             </div>
             <button
                 onClick={props.onSubmit}
-                type="button"
+                type="submit"
                 className="btn btn-success btn-block btn-lg  w-50 mx-auto mt-5">
                 Add Expense
             </button>
