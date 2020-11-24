@@ -25,7 +25,7 @@ const UserInput = props => {
                         className="form-control form-control-lg"
                         id="amount"
                         name="amount"
-                        value={props.description}
+                        value={props.amount}
                         onChange={props.handleChange}
                         required
                         placeholder="Amount" />
@@ -38,7 +38,7 @@ const UserInput = props => {
                         className="form-control form-control-lg"
                         id="date"
                         name="date"
-                        value={props.description}
+                        value={props.date}
                         onChange={props.handleChange}
                         required
                         placeholder="Date of Expense" />
@@ -52,8 +52,8 @@ const UserInput = props => {
                             data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"
-                            onChange={props.handleChange}>
-                            {props.title}
+                        >
+                            {props.payment}
                         </button>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <button
