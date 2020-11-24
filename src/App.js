@@ -9,8 +9,8 @@ class App extends Component {
 
     this.state = {
       rows: [],
-      title: 'Payment Method',
-      payment: '',
+      // title: 'Payment Method',
+      payment: 'Payment Method',
       amount: '',
       date: '',
       description: ''
@@ -35,11 +35,9 @@ class App extends Component {
 
   handleChange = (e) => {
     const { name, value } = e.target
-    console.log(`value ${value}`)
-    console.log(`name ${name}`)
+    console.log(name, value)
     this.setState({
       [name]: value,
-      title: value
     })
   }
 
@@ -49,7 +47,7 @@ class App extends Component {
       this.state.description === '' ||
       this.state.amount === '' ||
       this.state.date === '' ||
-      this.state.payment === ''
+      this.state.payment === 'Payment Method'
     ) {
       alert('Empty Expense Detail or info ===> No Expense to Track!!!')
     } else {
@@ -82,7 +80,7 @@ class App extends Component {
         <UserInput
           onSubmit={this.onSubmit}
           handleChange={this.handleChange}
-          title={this.state.title}
+          payment={this.state.payment}
           state={this.state.rows} />
         <ExpensesTable
           deleteExpense={this.deleteExpense}
