@@ -9,6 +9,7 @@ class App extends Component {
 
     this.state = {
       rows: [],
+      title: 'Payment Method',
       payment: '',
       amount: '',
       date: '',
@@ -26,6 +27,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+
     if (this.state.rows.length !== prevState.rows.length) {
       localStorage.setItem('Expense', JSON.stringify(this.state.rows))
     }
@@ -33,21 +35,36 @@ class App extends Component {
 
   handleChange = (e) => {
     const { name, value } = e.target
-    this.setState({ [name]: value })
+    console.log(`value ${value}`)
+    console.log(`name ${name}`)
+    this.setState({
+      [name]: value,
+      title: value
+    })
   }
 
   onSubmit = (e) => {
     e.preventDefault()
-    const newExpenseItem = {
-      id: Math.random(),
-      description: this.state.description,
-      amount: this.state.amount,
-      date: this.state.date,
-      payment: this.state.payment
+    if (
+      this.state.description === '' ||
+      this.state.amount === '' ||
+      this.state.date === '' ||
+      this.state.payment === ''
+    ) {
+      alert('Empty Expense Detail or info ===> No Expense to Track!!!')
+    } else {
+
+      const newExpenseItem = {
+        id: Math.random(),
+        description: this.state.description,
+        amount: this.state.amount,
+        date: this.state.date,
+        payment: this.state.payment
+      }
+      this.setState({
+        rows: [...this.state.rows, newExpenseItem]
+      })
     }
-    this.setState({
-      rows: [...this.state.rows, newExpenseItem]
-    })
   }
 
   deleteExpense = (expenseId) => {
@@ -62,8 +79,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <UserInput onSubmit={this.onSubmit} handleChange={this.handleChange} state={this.state.rows} />
-        <ExpensesTable deleteExpense={this.deleteExpense} expenses={this.state.rows} />
+        <UserInput
+          onSubmit={this.onSubmit}
+          handleChange={this.handleChange}
+          title={this.state.title}
+          state={this.state.rows} />
+        <ExpensesTable
+          deleteExpense={this.deleteExpense}
+          expenses={this.state.rows} />
       </div>
     );
   }
