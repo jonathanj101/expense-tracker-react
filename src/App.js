@@ -45,7 +45,6 @@ class App extends Component {
       date: this.state.date,
       payment: this.state.payment
     }
-
     this.setState({
       rows: [...this.state.rows, newExpenseItem]
     })
