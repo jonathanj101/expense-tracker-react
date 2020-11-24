@@ -13,6 +13,10 @@ const UserInput = props => {
                         type="text"
                         className="form-control form-control-lg"
                         id="description"
+                        name="description"
+                        value={props.description}
+                        onChange={props.handleChange}
+                        required
                         placeholder="Restaurant, Grocery, Bills etc..." />
                 </div>
                 <div className="form-group col-md-6">
@@ -20,6 +24,10 @@ const UserInput = props => {
                         type="number"
                         className="form-control form-control-lg"
                         id="amount"
+                        name="description"
+                        value={props.description}
+                        onChange={props.handleChange}
+                        required
                         placeholder="Amount" />
                 </div>
             </div>
@@ -29,6 +37,10 @@ const UserInput = props => {
                         type="date"
                         className="form-control form-control-lg"
                         id="date"
+                        name="description"
+                        value={props.description}
+                        onChange={props.handleChange}
+                        required
                         placeholder="Date of Expense" />
                 </div>
                 <div className="form-group col-md-6">
@@ -46,19 +58,24 @@ const UserInput = props => {
                             <button
                                 onClick={props.handleChange}
                                 className="dropdown-item"
-                                type="button">
+                                type="button"
+                                name='payment'
+                                value='Cash'>
                                 Cash
                             </button>
                             <button
                                 onClick={props.handleChange}
                                 className="dropdown-item"
-                                type="button">
+                                type="button"
+                                name='payment'
+                                value='Debit Card'>
                                 Debit Card
                             </button>
                             <button
                                 onClick={props.handleChange}
                                 className="dropdown-item"
-                                type="button">
+                                type="button"
+                                value='Credit Card'>
                                 Credit Card
                             </button>
                         </div>

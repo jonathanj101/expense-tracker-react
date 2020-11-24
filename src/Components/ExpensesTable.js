@@ -2,7 +2,7 @@ import React from 'react'
 import { Table } from 'react-bootstrap'
 
 const ExpensesTable = (props) => {
-    const expenses = props.state.rows;
+    const expenses = props.expenses
     const expense = expenses.map((expense, num) => {
         return (
             <tr
