@@ -17,4 +17,4 @@ Transitioning this previous [project](https://jonathanj101.github.io/Expense-Tra
 
 # Author
 
-**Jonathan Jimenez** - Aspiring Full Stack Developer - [LinkedIn](https://www.linkedin.com/in/jonathan-jimenez101/) |
+**Jonathan Jimenez** - Aspiring Full Stack Developer - [LinkedIn](https://www.linkedin.com/in/jonathan-jimenez101/) | [Website](https://jonathan-jimenez.herokuapp.com/)
